@@ -1,0 +1,25 @@
+Bootstrap: docker
+From: orevans/terraferma-thermocodegen:latest
+Stage: build
+
+%files
+        ./etc.bash.bashrc /etc/bash.bashrc
+        ./etc.profile     /etc/profile
+        ./etc.bash.load-modules   /etc/bash.load-modules
+        ./listmodules /usr/local/bin
+        ./tfsimwrap /usr/local/bin
+        ./tcg_builddb_wrap /usr/local/bin
+        ./tcg_buildrx_wrap /usr/local/bin
+        ./loadmodules /usr/local/bin
+
+%environment
+        export MODULEPATH=/usr/share/modules/modulefiles
+        export OMPI_DIR=/usr/local/openmpi
+        export SINGULARITY_OMPI_DIR=$OMPI_DIR
+        export SINGULARITYENV_APPEND_PATH=$OMPI_DIR/bin
+        export SINGULAIRTYENV_APPEND_LD_LIBRARY_PATH=$OMPI_DIR/lib
+        export PATH=$OMPI_DIR/bin:$PATH
+        export LD_LIBRARY_PATH=$OMPI_DIR/lib:$LD_LIBRARY_PATH
+
+%post
+        chmod a+x /usr/local/bin/listmodules /usr/local/bin/loadmodules /usr/local/bin/tfsimwrap usr/local/bin/tcg_builddb_wrap usr/local/bin/tcg_buildrx_wrap
