@@ -1,0 +1,19 @@
+#%Module1.0
+proc ModulesHelp { } {
+        global dotversion
+
+        puts stderr "	Sets environment for ThermoCodegen."
+}
+module-whatis "Sets environment for Thermocodegen"
+
+set tcg_prefix /usr/local/thermocodegen
+
+setenv       THERMOCODEGEN_VERSION     0.6.1
+setenv       THERMOCODEGEN_HOME        $tcg_prefix
+setenv	     THERMOCODEGEN_CMAKE_PATH  $tcg_prefix/share/thermocodegen/cmake
+prepend-path CMAKE_MODULE_PATH         $tcg_prefix/share/thermocodegen/cmake/modules
+prepend-path PYTHONPATH                $tcg_prefix/lib/python3.6/site-packages
+prepend-path DIAMOND_CONFIG_PATH       $tcg_prefix/share/thermocodegen/diamond
+prepend-path PATH                      $tcg_prefix/bin:/usr/local/spud/bin
+prepend-path CPLUS_INCLUDE_PATH        $tcg_prefix/include/swimdew
+prepend-path LD_LIBRARY_PATH           $tcg_prefix/lib

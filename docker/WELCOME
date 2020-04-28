@@ -1,0 +1,17 @@
+# TerraFERMA v2.0/ThermoCodegen v0.6.1  docker image
+
+Welcome!
+
+This docker image contains a complete installation of TerraFERMA and ThermoCodegen, alongside their dependencies, PETSc, FEniCS and SPuD, within an Ubuntu 18.04LTS OS.
+
+The environment variables have been set automatically using environment modules and it should now be possible to build and run both 
+TerraFERMA and ThermoCodegen models within this container. Opening the diamond GUI (and other visualization tools) depends on having forwarded the
+X11 connection correctly from this docker container to the local machine.  Additionally the `shared` directory is available to use 
+as shared volume with the local machine but depends on the correct configuration being used at startup.  See:
+
+    https://github.com/terraferma/terraferma/wiki/Installation#docker
+
+for information on how to do this.
+
+
+
