@@ -1,0 +1,5 @@
+#!/bin/bash
+. /etc/bash.bashrc
+. /etc/profile
+. /etc/bash.load-modules
+$@
